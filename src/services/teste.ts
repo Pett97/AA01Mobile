@@ -36,6 +36,7 @@ export function groupPassenger(passengers: Passenger[]): { title: string, data: 
 
   const origins = getAllOrigin(passengers).sort();
 
+
   origins.forEach((origin) => {
     const passengerOrigin = passengers.filter((p) => p.origin === origin || p.destination === origin);
     groupedPassengers.push({
@@ -43,7 +44,25 @@ export function groupPassenger(passengers: Passenger[]): { title: string, data: 
       data: passengerOrigin
     });
   });
-  console.log(JSON.stringify(groupedPassengers, null, 2));
+  //console.log(JSON.stringify(groupedPassengers, null, 2));
+  return groupedPassengers;
+}
+
+export function groupPassengerDestination(passengers: Passenger[]): { title: string, data: Passenger[] }[] {
+  let groupedPassengers: { title: string, data: Passenger[] }[] = [];
+
+  const destionations = getAllDestination(passengers).sort();
+  console.log(destionations);
+
+
+  destionations.forEach((origin) => {
+    const passengerOrigin = passengers.filter((p) => p.origin === origin || p.destination === origin);
+    groupedPassengers.push({
+      title: origin,
+      data: passengerOrigin
+    });
+  });
+  //console.log(JSON.stringify(groupedPassengers, null, 2));
   return groupedPassengers;
 }
 

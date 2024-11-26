@@ -3,7 +3,6 @@ import { Linking, Text, TouchableOpacity, View } from 'react-native';
 import styles from './about.style';
 import Button from '../../components/button/Button';
 import IMAGES from '../../constants/images';
-import ActionSheetComponent from '../../constants/actionSheet/actionSheet';
 import Action from '../../components/action/action';
 import Header from '../../components/header/header';
 import FullScreen from '../../containers/Fullscreen';
@@ -18,9 +17,7 @@ function AboutScreen() {
       <View style={styles.link}>
       <View style={styles.header}>
             <Header>
-            <ActionSheetComponent>
-              <Action optionsList={["", "logout"]} />
-            </ActionSheetComponent>
+              <Action optionsList={["logout","cancel"]} />
             </Header>
           </View>
       <Text style={styles.title}>AA01</Text>
