@@ -3,7 +3,11 @@ import React from 'react'
 
 function _layout() {
   return (
-    <Stack/>
+    <Stack
+      screenOptions={{
+        headerShown:false
+      }}
+    />
   )
 }
 

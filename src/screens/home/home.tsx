@@ -6,9 +6,11 @@ import InputUser from '../../components/InputUser/InputUser'
 import styles from './home.style'
 import InputPassword from '../../components/InputPassword/InputPassword';
 import { validateLogin } from '../../services/checkLogin'
+import { useRouter } from 'expo-router'
 
 
 function Home() {
+  const router = useRouter();
 
   const [user,setUser] = useState("");
   const [pwd,setPwd] = useState("");
@@ -22,7 +24,9 @@ function Home() {
   }
 
   const handleLogin = ()=>{
-    console.log(validateLogin(user,pwd));
+    if(validateLogin(user,pwd)){
+      router.push("/listCategory");
+    }
   };
 
   return (
@@ -36,7 +40,7 @@ function Home() {
         <InputPassword pwd={pwd} onPwdChange={handlePwdChange} ></InputPassword>
         </View>
       </View>
-      <Button imagePath={IMAGES.NEXT} onPress={handleLogin}></Button>
+      <Button  text='' imagePath={IMAGES.NEXT} onPress={handleLogin}></Button>
     </View>
   )
 }
